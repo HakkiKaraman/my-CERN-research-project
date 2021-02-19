@@ -12,13 +12,16 @@
 %             obliqueAngleRadians: a real number in an interval [0, pi] (example pi/3)
 %     dataPointsPolarAngleRadians: a list of real numbers in an interval [0, 2*pi] (example [pi:pi/80:3*pi/2])
 %         syntheticNoiseAmplitude: a positive real number (example 0.0500).
+%
 %--- DEPENDENCIES ---------------------------------------------------------
 %This main code is using ellipticDataGenerator and
 %coordinateInvariantEllipseFit functions
+%
 %--- REFERENCES -----------------------------------------------------------
 %Osmund Francis (https://math.stackexchange.com/users/149569/osmund-francis), 
 %Determining the major/minor axes of an ellipse from general form, URL 
 %(version: 2017-02-11): https://math.stackexchange.com/q/820896
+%
 %--- DEVELOPPER & PROJECT -------------------------------------------------
 %This code developped by Hakki Karaman (hakki.karaman@cern.ch) in February 
 %2021 for CERN research project 'Novel investigations on vertical two-phase 
@@ -26,6 +29,7 @@
 %regime maps by using pattern recognition algorithms on high speed camera 
 %images for the new generation CO2 cooling systems of the ATLAS Experiment'
 %--------------------------------------------------------------------------
+
 %The user can change following parameters
 EllipticDataPointGeneratorInput.xCoordinateCenter = 1;
 EllipticDataPointGeneratorInput.yCoordinateCenter = -7;
@@ -34,10 +38,13 @@ EllipticDataPointGeneratorInput.lengthSemiMinorAxis = 3;
 EllipticDataPointGeneratorInput.obliqueAngleRadians = -pi/3;
 EllipticDataPointGeneratorInput.dataPointsPolarAngleRadians = [pi:pi/80:3*pi/2];
 EllipticDataPointGeneratorInput.syntheticNoiseAmplitude = .05;
+%--------------------------------------------------------------------------
+
 %Creating synthetic elliptic data points
 [dataPoints] = ellipticDataGenerator(EllipticDataPointGeneratorInput);
-%Fitting and plotting the optimal ellipse to the data points. 
-%The ellipse is based on geometric fitting i.e. minimizes the sum of the 
-%squares of the orthogonal distances from the data points to the curve. It
-%is rotation invariant.
+
+%It is fitting and plotting the optimal ellipse to the data points. 
+%The ellipse is based on geometric fitting i.e. minimizing the sum of the 
+%squares of the orthogonal distances from the data points to the curve. 
+%It is rotation invariant.
 [Ellipse] = coordinateInvariantEllipseFit(dataPoints)
