@@ -88,5 +88,5 @@ Ellipse.xCoordinateMinorAxisEndPoints = [(Ellipse.xCoordinateCenter + Ellipse.le
 Ellipse.yCoordinateMinorAxisEndPoints = [(Ellipse.yCoordinateCenter - Ellipse.lengthSemiMinorAxis*cos(theta))...
                                          (Ellipse.yCoordinateCenter + Ellipse.lengthSemiMinorAxis*cos(theta))];
                                      
-Ellipse.ellipseArea = 4*pi*Ellipse.lengthSemiMajorAxis*Ellipse.lengthSemiMinorAxis;
+Ellipse.ellipseArea = pi*Ellipse.lengthSemiMajorAxis*Ellipse.lengthSemiMinorAxis;
 end
